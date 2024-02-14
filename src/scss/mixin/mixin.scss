@@ -1,0 +1,48 @@
+// Create flexable box with border redius and without
+@mixin box_border_radius($radius:null, $bgColor:null, $width:30px, $height:24px){
+  -webkit-border-radius: $radius;
+    -moz-border-radius : $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+       background-color: $bgColor;
+                height : $height;
+                  width: $width;
+}
+
+@mixin text_overflow($line-clamp){
+  -webkit-line-clamp: $line-clamp;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: break-spaces;
+}
+
+// For Responsive css for multiple device
+@mixin respond($device) {
+  @if $device == phone {
+    @media screen and (max-width: 575px) {
+      @content;
+    }
+  } @else if $device == phone_land {
+    @media screen and (max-width: 767px) {
+      @content;
+    }
+  } @else if $device == tab {
+    @media screen and (max-width: 991px) {
+      @content;
+    }
+  } @else if $device == tab_land {
+    @media screen and (max-width: 1170px) {
+      @content;
+    }
+  } @else if $device == desk {
+    @media screen and (max-width: 1399px) {
+      @content;
+    }
+  } @else if $device == desk_lg {
+    @media screen and (min-width: 1400px) {
+      @content;
+    }
+  }
+}
